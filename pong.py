@@ -20,8 +20,6 @@ if __name__ == "__main__":
     JST = timezone(timedelta(hours=+9), "JST")
     print(datetime.now(JST))
     name = "-lr" + str(lr) + "-"
-    try:
-        os.mkdir(path)
     ppo = PPO(ENV, max_epochs, N, T, batch_size, lr=lr, v_loss_coef=v_loss_coef, max_grad_norm=max_grad_norm, epsilon=epsilon, gpu=gpu)
     try:
         rs = ppo.run(name=name)
@@ -29,5 +27,5 @@ if __name__ == "__main__":
         pass
     print(datetime.now(JST))
     plt.plot(range(len(rs)), rs)
-    plt.savefig("pong/rs"+name[:-1]+".png")
+    plt.savefig(name[:-1]+"rs.png")
     plt.close()
