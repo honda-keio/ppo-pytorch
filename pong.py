@@ -1,4 +1,4 @@
-import matplotlib
+import matplotlib, os
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import torch
@@ -20,6 +20,8 @@ if __name__ == "__main__":
     JST = timezone(timedelta(hours=+9), "JST")
     print(datetime.now(JST))
     name = "-lr" + str(lr) + "-"
+    try:
+        os.mkdir(path)
     ppo = PPO(ENV, max_epochs, N, T, batch_size, lr=lr, v_loss_coef=v_loss_coef, max_grad_norm=max_grad_norm, epsilon=epsilon, gpu=gpu)
     try:
         rs = ppo.run(name=name)

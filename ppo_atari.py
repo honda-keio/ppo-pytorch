@@ -115,12 +115,12 @@ class PPO:
                     sec = int(sec % 60)
                     print(epoch+1, rs[epoch], end=" time:")
                     print(h, m, sec, sep=":")
-                    torch.save(self.model.to("cpu").state_dict(), "pong/ppo"+name+str(epoch+1)+".pth")
+                    torch.save(self.model.to("cpu").state_dict(), name+str(epoch+1)+".pth")
                     self.model.to(self.device)
                 if self.end_(epoch, rs):
                     rs = rs[:epoch+1]
                     break
         except KeyboardInterrupt:
             rs = rs[:epoch+1]
-        torch.save(self.model.to("cpu").state_dict(), "pong/ppo"+name+str(epoch+1)+".pth")
+        torch.save(self.model.to("cpu").state_dict(), name+str(epoch+1)+".pth")
         return rs
