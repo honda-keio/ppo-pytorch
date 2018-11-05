@@ -14,13 +14,13 @@ if __name__ == "__main__":
     batch_size = 64
     v_loss_coef = 0.5
     max_grad_norm = 0.1
-    gpu = True
+    device = torch.device("cuda:0") if torch.cuda.is_available()
     epsilon = 0.3
     lr = 0.00005
     JST = timezone(timedelta(hours=+9), "JST")
     print(datetime.now(JST))
     name = "-lr" + str(lr) + "-"
-    ppo = PPO(ENV, max_epochs, N, T, batch_size, lr=lr, v_loss_coef=v_loss_coef, max_grad_norm=max_grad_norm, epsilon=epsilon, gpu=gpu)
+    ppo = PPO(ENV, max_epochs, N, T, batch_size, lr=lr, v_loss_coef=v_loss_coef, max_grad_norm=max_grad_norm, epsilon=epsilon, device=device)
     try:
         rs = ppo.run(name=name)
     except KeyboardInterrupt:
