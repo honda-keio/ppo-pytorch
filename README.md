@@ -1,7 +1,9 @@
 # ppo-pytorch
+openaiが発表した論文(https://arxiv.org/abs/1707.06347)を実装して、pongに対して実行してみました。
+
 とりあえずあげてみましたが、これから修正していきます。
 
-一点取られてしまうのは$\epsilon$-greedyでやれば変わるはず
+一点取られてしまうのはepsilon-greedyでやれば変わるはず
 
 pong
 
