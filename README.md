@@ -1,5 +1,5 @@
 # ppo-pytorch
-openaiが発表した論文(https://arxiv.org/abs/1707.06347)を実装して、pongに対して実行してみました。
+openaiが発表した論文(https://arxiv.org/abs/1707.06347 )を実装して、pongに対して実行してみました。
 
 とりあえずあげてみましたが、これから修正していきます。
 
